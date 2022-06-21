@@ -3,13 +3,13 @@
 	❄️수업 내용❄️ 
 	</h1>
 </div>
-```
+```markdown
 							🐉SSAFY 7기 모든 커리큘럼 정리🐉
 ```
 
 ### ⛄[Python](./01_python/README.md)⛄
 
-📘[파이썬 공식문서](https://opentutorials.org/module/782/6083)
+📘[파이썬 공식문서](https://docs.python.org/ko/3/)
 
 
 
