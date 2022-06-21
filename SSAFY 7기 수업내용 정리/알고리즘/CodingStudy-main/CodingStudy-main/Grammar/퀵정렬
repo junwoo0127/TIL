@@ -1,0 +1,47 @@
+#퀵정렬
+#기준을 정한 다음 큰수와 작은 수를 교환한 후 리스트를 반으로 나누는 방식으로 동작
+# 평균적 시간 복잡도 O(NlogN)
+# 최악의 시간 복잡도 O(N^2)
+#이미 데이터가 정렬되어 있느 ㄴ경우 느리게 동작함
+array=[5,7,9,0,3,1,6,2,4,8]
+
+def quick_sort(array, start, end):
+  if start>=end:
+    return
+  pivot=start
+  left=start+1
+  right=end
+  while left<=right:
+    while left<=end and array[left]<=array[pivot]:
+      left+=1
+    while right>start and array[right]>=array[pivot]:
+      right-=1
+    if left>right:
+      array[right],array[pivot] = array[pivot],array[right]
+    else:
+      array[left],array[right]=array[right],array[left]
+
+  quick_sort(array,start,right-1)
+  quick_sort(array,right+1,end)
+
+quick_sort(array, 0, len(array)-1)
+print(array)
+
+#디벨롭된 퀵 정렬 코드
+#피봇 기준 작은 값은 left_side에 넣고 큰 값은 right_side에 넣는 형태로
+#결론적으로는 오름차순으로 배열되는 구조
+#코드도 직관성 있고 연산횟수도 줄어 효율적인것 같다
+
+array=[5,7,9,0,3,1,6,2,4,8]
+
+def quick_sort(array):
+  if len(array) <=1:
+    return array
+  pivot=array[0]
+  tail=array[1:] #피버을 제외한 리스트
+
+  left_side = [x for x in tail if x<=pivot]
+  right_side=[x for x in tail if x>pivot]
+
+  return quick_sort(left_side) + [pivot] + quick_sort(right_side)
+print(quick_sort(array))
