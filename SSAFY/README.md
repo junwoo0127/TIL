@@ -3,9 +3,14 @@
 	❄️수업 내용❄️ 
 	</h1>
 </div>
-```markdown
-							🐉SSAFY 7기 모든 커리큘럼 정리🐉
-```
+<div align="center">
+    <h3>
+        🐉SSAFY 7기 모든 커리큘럼 정리🐉
+    </h3>
+    <hr>
+</div>
+
+​				
 
 ### ⛄[Python](./01_python/README.md)⛄
 

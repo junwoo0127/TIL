@@ -5,5 +5,4 @@
 </div>
 
 
-
-[🐸SSAFY 7기 수업 내용 정리🐸](./SSAFY/README.md)
+### 🐸[SSAFY 7기 수업 내용 정리](./SSAFY/README.md)🐸
