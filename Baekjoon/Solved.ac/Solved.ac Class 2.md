@@ -50,3 +50,27 @@ for i in lst:
     print(i)
 ```
 
+> 2789 블랙잭
+
+```python
+N, M = map(int,input().split())
+arr = list(map(int,input().split()))
+result = 0
+for i in range(N):
+    for j in range(i+1,N):
+        for k in range(j+1,N):
+            if arr[i] + arr[j] + arr[k] >M:
+                continue
+            else:
+                result = max(result, arr[i]+arr[j]+arr[k])
+print(result)
+
+# continue 예시
+# a = [1,2,3,4,5,6]
+# for i in a:
+#     if i == 3:
+#         continue
+#     else:
+#         print(i)
+```
+
