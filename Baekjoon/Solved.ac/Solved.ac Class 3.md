@@ -1,6 +1,6 @@
 ## Class 3 
 
-> 1012 유기총 배추(BFS,DFS)
+> 1012 유기총 배추(BFS,DFS) https://www.youtube.com/watch?v=ansd5B27uJM
 
 ```python
 
