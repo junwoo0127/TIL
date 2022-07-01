@@ -218,3 +218,56 @@ for nums in range(1000001):
 print(min_count)
 ```
 
+> 1389 케빈 베이컨의 6단계 법칙
+
+```python
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+def bfs(graph,start):
+    num = [0] * (N+1)
+    visited[start] = 1
+    q = deque()
+    q.append(start)
+    while q:
+        a = q.popleft()
+        for i in graph[a]:
+            if visited[i] == 0:
+                visited[i] = 1
+                num[i] = num[a] + 1
+                q.append(i)
+    return sum(num)
+
+N,M = map(int,input().split())
+graph = [[] for _ in range(N+1)]
+for i in range(M):
+    a,b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+result = []
+for i in range(1,N+1):
+    visited = [0 for _ in range(N + 1)]
+    result.append(bfs(graph, i))
+print(result.index(min(result)) + 1)
+```
+
+> 1541 잃어버린 괄호(그리디 알고리즘)
+
+![image-20220701184739623](Solved.ac%20Class%203.assets/image-20220701184739623.png)
+
+![image-20220701184817093](Solved.ac%20Class%203.assets/image-20220701184817093.png)
+
+![image-20220701184830561](Solved.ac%20Class%203.assets/image-20220701184830561.png)
+
+```python
+arr = input().split('-')
+s = 0
+for i in arr[0].split('+'):
+    s += int(i)
+for i in arr[1:]:
+    for j in i.split('+'):
+        s -= int(j)
+print(s)
+```
+
