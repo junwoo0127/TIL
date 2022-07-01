@@ -295,3 +295,79 @@ for i in range(m):
         print(dict[quest])
 ```
 
+> 1676 팩토리얼0의 개수
+
+```python
+from math import factorial
+n = int(input())
+cnt = 0
+for x in str(factorial(n))[::-1]:
+    if x != '0':
+        break
+    cnt += 1
+print(cnt)
+
+# 팩토리얼 재귀 호출로 만들기
+
+def factorial(n):
+    if n == 1:  # n이 1일 때
+        return 1  # 1을 반환하고 재귀호출을 끝냄
+    return n * factorial(n - 1)  # n과 factorial 함수에 n - 1을 넣어서 반환된 값을 곱함
+
+
+print(factorial(5))
+```
+
+> 1697 숨바꼭질 (BFS)
+
+```python
+from collections import deque
+
+def bfs():
+    q = deque()
+    q.append(n)
+    while q:
+        x = q.popleft()
+        if x == k:
+            print(visited[x])
+            break
+        for nx in (x-1, x+1, x*2):
+            if 0<=nx<=MAX and visited[nx] == 0:
+                visited[nx] = visited[x] + 1
+                q.append(nx)
+MAX = 10 ** 5
+visited = [0] * (MAX + 1)
+n,k = map(int, input().split())
+
+bfs()
+
+# 출처: https://wook-2124.tistory.com/273
+```
+
+> 1764 듣보잡(set)
+
+![image-20220702014655522](Solved.ac%20Class%203.assets/image-20220702014655522.png)
+
+![image-20220702014708980](Solved.ac%20Class%203.assets/image-20220702014708980.png)
+
+![image-20220702014725679](Solved.ac%20Class%203.assets/image-20220702014725679.png)
+
+```python
+N, M = map(int,input().split())
+
+a = set()
+for i in range(N):
+    a.add(input())
+
+b= set()
+for i in range(M):
+    b.add(input())
+
+result = sorted(list(a.intersection(b)))
+
+print(len(result))
+
+for i in result:
+    print(i)
+```
+
