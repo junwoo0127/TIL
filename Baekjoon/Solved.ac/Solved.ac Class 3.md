@@ -371,3 +371,77 @@ for i in result:
     print(i)
 ```
 
+> 1780 종이의 개수(분할정복,재귀) https://dailymapins.tistory.com/m/270
+
+![image-20220702135059420](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702135059420.png)
+
+```python
+# 분할정복
+# divide Conquer
+import sys
+sys.setrecursionlimit(10**6)
+input= sys.stdin.readline
+
+N=int(input().rstrip())
+
+board=[list(map(int,input().split())) for _ in range(N)]
+zero=0
+one=0
+minus_one=0
+def solve(y,x,n):
+    global zero,one,minus_one
+    # 종이가 모두 같은 수로 이루어져 있는지 확인
+    init=board[y][x]
+    for i in range(y,y+n):
+        for j in range(x,x+n):
+            if board[i][j] != init:
+                # 같은 수로 이루어져 있지 않다면, 9 등분을 합시다.
+                for k in range(3):
+                    for l in range(3):
+                        solve(y+k*n//3,x+l*n//3,n//3)
+                # 같지 않기 때문에, 이 loop는 종료해줍니다. 불필요한 반복을 하지 않습니다.
+                return
+    if init==0:
+        zero+=1
+    elif init==1:
+        one+=1
+    elif init==-1:
+        minus_one+=1
+    return
+
+solve(0,0,N)
+
+print(minus_one)
+print(zero)
+print(one)
+```
+
+> 1927 최소 힙
+
+![image-20220702151714498](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702151714498.png)
+
+![image-20220702151552663](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702151552663.png)
+
+![image-20220702151639577](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702151639577.png)
+
+
+
+```python
+import sys
+import heapq
+input = sys.stdin.readline
+
+min_heap = []
+
+for _ in range(int(input())):
+    n = int(input())
+    
+    if n == 0:
+        if len(min_heap):
+            print(heapq.heappop(min_heap))
+        else:
+            print(0)
+    else:
+        heapq.heappush(min_heap, n)
+```
+
