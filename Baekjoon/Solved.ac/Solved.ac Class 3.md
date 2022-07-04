@@ -476,3 +476,56 @@ print(maze[n - 1][m - 1])
 ```
 
 > 1992 쿼드트리(분할정복)
+
+```python
+n = int(input())
+arr = [list(map(int,input().split())) for _ in range(n)]
+
+def dfs(x,y,n):
+    check = arr[x][y]
+    for i in range(x,x+n):
+        for j in range(y,y+n):
+            if check != arr[i][j]:
+                chec k = -1
+                break
+    if check == -1:
+        print("(", end="")
+        n = n // 2
+        dfs(x,y,n)
+        dfs(x,y+n,n)
+        dfs(x+n,y,n)
+        dfs(x+n,y+n,n)
+        print(")",end="")
+    elif check == 1:
+        print(1, end="")
+    else:
+        print(0, end="")
+dfs(0,0,n)
+
+```
+
+> 2579 계단 오르기(DP)
+
+![image-20220704191256258](Solved.ac%20Class%203.assets/image-20220704191256258.png)
+
+![image-20220704191239520](Solved.ac%20Class%203.assets/image-20220704191239520.png)
+
+```python
+import sys
+input = sys.stdin.readline
+arr = []
+dp = []
+
+l = int(input())
+for _ in range(l):
+    arr.append(int(input()))
+
+dp.append(arr[0])
+dp.append(max(arr[0]+arr[1],arr[1]))
+dp.append(max(arr[0]+arr[2],arr[1]+arr[2]))
+for i in range(3,l):
+    dp.append(max(dp[i-2] + arr[i] , dp[i-3] + arr[i] + arr[i - 1]))
+
+print(dp.pop())
+```
+
