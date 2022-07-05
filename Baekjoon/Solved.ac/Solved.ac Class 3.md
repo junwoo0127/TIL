@@ -373,7 +373,7 @@ for i in result:
 
 > 1780 종이의 개수(분할정복,재귀) https://dailymapins.tistory.com/m/270
 
-![image-20220702135059420](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702135059420.png)
+![image-20220705213130111](Solved.ac%20Class%203.assets/image-20220705213130111.png)
 
 ```python
 # 분할정복
@@ -418,13 +418,9 @@ print(one)
 
 > 1927 최소 힙
 
-![image-20220702151714498](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702151714498.png)
+![image-20220705213010694](Solved.ac%20Class%203.assets/image-20220705213010694.png)
 
-![image-20220702151552663](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702151552663.png)
-
-![image-20220702151639577](C:\Users\김준우\AppData\Roaming\Typora\typora-user-images\image-20220702151639577.png)
-
-
+![image-20220705213028138](Solved.ac%20Class%203.assets/image-20220705213028138.png)
 
 ```python
 import sys
@@ -556,7 +552,7 @@ print(cnt)
 
 > 2630 색종이 만들기(분할정복)
 
-![image-20220705172712313](C:\Users\김준우\Desktop\TIL\Baekjoon\Solved.ac\Solved.ac Class 3.assets\image-20220705172712313.png)
+![KakaoTalk_20220705_172347873](Solved.ac%20Class%203.assets/KakaoTalk_20220705_172347873.png)
 
 ```python
 import sys
