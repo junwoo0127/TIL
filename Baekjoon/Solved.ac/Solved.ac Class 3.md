@@ -683,3 +683,25 @@ for i in range(t):
         print("%d %d" % (a, b))
 ```
 
+> 9095 1,2,3 더하기(DP프로그래밍)
+
+![image-20220708113921160](Solved.ac%20Class%203.assets/image-20220708113921160.png)
+
+```python
+T = int(input())
+
+def sol(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    elif n==3:
+        return 4
+    else:
+        return sol(n-1) + sol(n-2) + sol(n-3)
+    
+for i in range(T) :
+    n = int(input())
+    print(sol(n))
+```
+
