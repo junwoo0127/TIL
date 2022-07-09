@@ -724,3 +724,16 @@ for _ in range(n):
     heapq.heappush(heap, (-1)*m)
 ```
 
+> 11399 ATM(그리디)
+
+```python
+n = int(input())
+s = list(map(int, input().split()))
+num = 0
+s.sort()
+for i in range(n):
+    for j in range(i + 1):
+        num += s[j]
+print(num)
+```
+
