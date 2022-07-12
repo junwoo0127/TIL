@@ -817,3 +817,148 @@ for i in range(1, N + 1):
 print(count)
 ```
 
+> 11726 2*N(DP)
+
+![image-20220712214944845](Solved.ac%20Class%203.assets/image-20220712214944845.png)
+
+```python
+s = [0, 1, 2]
+for i in range(3, 1001):
+  s.append(s[i - 2] + s[i - 1])
+n = int(input())
+print(s[n] % 10007)
+```
+
+> 18870 좌표압축(정렬)
+
+```python
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+arr2 = sorted(list(set(arr)))
+dic = {arr2[i] : i for i in range(len(arr2))}
+for i in arr:
+    print(dic[i], end = ' ')
+```
+
+> 5430 AC(덱)
+
+```python
+import sys
+from collections import deque
+
+t = int(input())
+
+for i in range(t):
+    p = sys.stdin.readline().rstrip()
+    n = int(input())
+    arr = deque(sys.stdin.readline().rstrip()[1:-1].split(","))
+
+    if n == 0:
+        arr = deque()
+
+    flag = 0
+    for j in p:
+        if j == 'R':
+            arr.reverse()
+        elif j == 'D':
+            if arr:
+                arr.popleft()
+            else:
+                print("error")
+                flag = 1
+                break
+    if flag == 0:
+        print("["+",".join(arr)+"]")
+```
+
+> 7569 토마토(BFS 삼방향)
+
+```python
+import sys
+from collections import deque
+m,n,h = map(int,input().split()) # mn크기, h상자수
+graph = []
+queue = deque([])
+ 
+for i in range(h):
+    tmp = []
+    for j in range(n):
+        tmp.append(list(map(int,sys.stdin.readline().split())))
+        for k in range(m):
+            if tmp[j][k]==1:
+                queue.append([i,j,k])
+    graph.append(tmp)
+    
+dx = [-1,1,0,0,0,0]
+dy = [0,0,1,-1,0,0]
+dz = [0,0,0,0,1,-1]
+while(queue):
+    x,y,z = queue.popleft()
+    
+    for i in range(6):
+        a = x+dx[i]
+        b = y+dy[i]
+        c = z+dz[i]
+        if 0<=a<h and 0<=b<n and 0<=c<m and graph[a][b][c]==0:
+            queue.append([a,b,c])
+            graph[a][b][c] = graph[x][y][z]+1
+            
+day = 0
+for i in graph:
+    for j in i:
+        for k in j:
+            if k==0:
+                print(-1)
+                exit(0)
+        day = max(day,max(j))
+print(day-1)
+```
+
+> 9019 DSLR(BFS)
+
+```python
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+for _ in range(int(input())):
+    A,B = map(int,input().split())
+    q = deque()
+    q.append((A,""))
+    visit = [False] * 10000
+    
+    while q:
+        num, path = q.popleft()
+        visit[num] = True
+        if num == B:
+            print(path)
+            break
+        
+        # 1
+        num2 = (2*num)%10000
+        if not visit[num2]:
+            q.append((num2,path+"D"))
+            visit[num2] = True
+        # 2
+        num2 = (num-1)%10000
+        if not visit[num2]:
+            q.append((num2,path+"S"))
+            visit[num2] = True
+        # 3
+        num2 = (10*num+(num//1000))%10000
+        if not visit[num2]:
+            q.append((num2,path+"L"))
+            visit[num2] = True
+            
+        # 4
+        num2 = (num//10+(num%10)*1000)%10000
+        if not visit[num2]:
+            q.append((num2,path+"R"))
+            visit[num2] = True
+```
+
