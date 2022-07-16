@@ -1000,3 +1000,59 @@ for i in range(t):
     print(num(m, n, x, y))
 ```
 
+> 9375 패션왕 신해빈()
+
+```py
+# Counter 함수
+from collections import Counter
+t = int(input())
+
+for i in range(t):
+    n = int(input())
+    wear = []
+    for j in range(n):
+        a, b = input().split()
+        wear.append(b)
+
+    wear_Counter = Counter(wear)
+    cnt = 1 # 각 종류마다 항목의 개수
+
+    for key in wear_Counter:
+        cnt *= wear_Counter[key] + 1
+
+    print(cnt-1)
+# 그냥
+t = int(input())
+
+for i in range(t):
+    n = int(input())
+    weardict = {}
+    for j in range(n):
+        wear = list(input().split())
+        if wear[1] in weardict:
+            weardict[wear[1]].append(wear[0])
+        else:
+            weardict[wear[1]] = [wear[0]]
+
+    cnt = 1 # 각 종류마다 항목의 개수
+
+    for k in weardict:
+        cnt *= (len(weardict[k])+1)
+    print(cnt-1)
+```
+
+> 9461 파도반 수열(DP)
+
+```python
+wh = [0 for i in range(101)]
+wh[1] = 1
+wh[2] = 1
+wh[3] = 1
+for i in range(0, 98):
+    wh[i + 3] = wh[i] + wh[i + 1]
+t = int(input())
+for i in range(t):
+    n = int(input())
+    print(wh[n])
+```
+
