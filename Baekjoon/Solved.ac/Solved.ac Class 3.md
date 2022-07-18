@@ -1121,3 +1121,47 @@ for i in reversed(range(N)):
 print(count)
 ```
 
+> 11286 절댓값 힙(우선순위 큐)
+
+```python
+import sys
+import heapq
+
+numbers = int(input())
+heap = []
+
+for _ in range(numbers):
+    num = int(sys.stdin.readline())
+    if num != 0:
+        heapq.heappush(heap, (abs(num), num))
+    else:
+        try:
+            print(heapq.heappop(heap)[1])
+        except:
+            print(0)
+```
+
+> 11403 경로 찾기(플로이드-위셜)
+
+```python
+N = int(input())
+graph = []
+for _ in range(N):
+    graph.append(list(map(int, input().split())))
+    
+    
+#플로이드-워셜 알고리즘
+for k in range(N): #경로 for문이 가장 상위 단계여야 누락되지 않는다
+    for i in range(N):
+        for j in range(N): 
+            if graph[i][j] == 1 or (graph[i][k] == 1 and graph[k][j] == 1):
+                graph[i][j] = 1
+
+
+#출력
+for row in graph:
+    for col in row:
+        print(col, end = " ")
+    print()
+```
+
