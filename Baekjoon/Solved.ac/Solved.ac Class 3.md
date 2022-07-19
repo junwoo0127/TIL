@@ -1165,3 +1165,34 @@ for row in graph:
     print()
 ```
 
+> 11659 구간 합 구하기4
+
+```python
+import sys
+input = sys.stdin.readline
+ 
+n, m = map(int, input().split())
+arr = list(map(int, input().split()))
+prefix_sum = [0]    # init prefix_sum    
+ 
+temp = 0    
+for i in arr:    # accumulate arr section 
+    temp += i
+    prefix_sum.append(temp)
+ 
+for i in range(m):
+    a, b = map(int, input().split())
+    print(prefix_sum[b] - prefix_sum[a-1])
+
+```
+
+> 11727 2*N 타일링 2
+
+```python
+s = [0, 1, 3]
+for i in range(3, 1001):
+  s.append((s[i - 2] * 2) + s[i - 1])
+n = int(input())
+print(s[n] % 10007)
+```
+
