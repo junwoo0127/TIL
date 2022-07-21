@@ -1312,3 +1312,93 @@ while True:
         ate = 0
 ```
 
+> 16928 뱀과 사다리 게임(BFS,Graph)
+
+```python
+import sys
+from collections import deque
+
+
+# bfs 탐색
+def bfs(v):
+    queue = deque([v])
+    visited[v] = 1
+
+    while queue:
+
+        target = queue.popleft()
+
+        # 주사위 눈만큼 반복한다.
+        for i in range(1, 7):
+            dice = target + i
+
+            # 100칸이 넘어가면 넘긴다.
+            if dice > 100:
+                continue
+
+            cnt = graph[dice]
+
+            # 탐색하지 않은 칸이라면 탐색한다.
+            if visited[cnt] == 0:
+                queue.append(cnt)
+                visited[cnt] = visited[target] + 1
+
+                # 100번째 칸까지 탐색했다면 리턴
+                if cnt == 100:
+                    return
+
+
+n, m = map(int, sys.stdin.readline().split())
+
+# 보드판을 표현, 사다리나 뱀인 경우에는 이동 후 좌표로 표시
+graph = [i for i in range(101)]
+for _ in range(n + m):
+    a, b = map(int, sys.stdin.readline().split())
+    graph[a] = b
+
+# 탐색한 칸까지 가기 위한 주사위 던진 횟수를 체크
+visited = [0] * 101
+
+# 1번 칸부터 bfs 탐색
+bfs(1)
+
+# 100번째 칸까지 가기 위한 주사위 던진 횟수에서
+# 1번 칸에서 카운트한 주사위 던진 횟수를 빼준다.
+print(visited[100] - 1)
+```
+
+> 17219 비밀번호 찾기
+
+```python
+import sys
+input = sys.stdin.readline
+
+N, M = map(int, input().split())
+add = {}
+
+for _ in range(N):
+    site, ps = input().split()
+    add[site] = ps
+
+for _ in range(M):
+    print(add[input().rstrip()])
+```
+
+> 17626 Four Squares(브루트포스 알고리즘, DP)
+
+```python
+N = int(input())
+dp = [0,1]
+
+for i in range(2, N+1):
+    min_value = 1e9
+    j = 1
+
+    while (j**2) <= i:
+        min_value = min(min_value, dp[i - (j**2)])
+        j += 1
+
+    dp.append(min_value + 1)
+print(dp[N])
+```
+
