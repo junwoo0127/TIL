@@ -164,3 +164,22 @@ cnt = min(one[v1] + v1_[v2] + v2_[n], one[v2] + v2_[v1] + v1_[n])
 print(cnt if cnt < inf else -1)
 ```
 
+> 1629 곱셈
+
+```python
+import sys
+a,b,c = map(int,sys.stdin.readline().split())
+
+def multi (a,n):
+  if n == 1:
+      return a%c
+  else:
+      tmp = multi(a,n//2)
+      if n %2 ==0:
+          return (tmp * tmp) % c
+      else:
+          return (tmp  * tmp *a) %c
+          
+print(multi(a,b))
+```
+
