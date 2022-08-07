@@ -555,3 +555,18 @@ for i in range(n):
 preorder(0, n-1, 0, n-1)
 ```
 
+> 2407 조합
+
+```python
+import math
+
+N, M = map(int, input().split())
+
+X = math.factorial(N)
+Y = (math.factorial(N-M)) * (math.factorial(M))
+
+answer = X//Y
+
+print(answer)
+```
+
